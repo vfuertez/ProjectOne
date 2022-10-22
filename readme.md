@@ -1,20 +1,34 @@
-# The Name of My App
+# Pokedex
 
-a description of my project 
+shows the image, name, and number of pokemons
 
 ### Technologies Used
 
-- tech 
-- tech 2
-- tech 3
-- tech 4
+- HTML       |  FLEXBOX
+- CSS
+- Javascript
+- AJAX
+- JSON
 
 ### Wireframes
 
-![sdf](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQx6YN0-EHHvPNzi3mUy4ajHaqkYOLse3Xq8E6V5Uy50zIjQk6SfO6cXy_b5rPqEq-Dmao&usqp=CAU)
+![idea](https://i.imgur.com/TgcnQIE.png)
+![](https://i.imgur.com/IKre449.png)
+![](https://i.imgur.com/4vnjKYV.png)
+![](https://i.imgur.com/rNPZy3C.png)
 
 | Day | Goal |
 |-----| ---- |
 |1    | Choose API|
 |2    | Render data to screen |
-|3    | Create form
+|3    | Create form |
+
+
+### Link to Project
+[My Project Live Page](https://projectone-kappa.vercel.app/)
+
+### API link
+https://pokeapi.co/api/v2/
+
+### Endpoint
+https://pokeapi.co/api/v2/pokemon/

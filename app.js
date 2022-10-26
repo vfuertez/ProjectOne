@@ -1,3 +1,4 @@
+
 const baseURL= "https://pokeapi.co/api/v2/pokemon/"
 console.log(baseURL)
 
@@ -9,7 +10,7 @@ function searchPokemon() {
     $.ajax(url)
     .then((data) => {
         console.log(data)
-        document.querySelector(".pokemonDisplay").innerHTML = `
+        document.querySelector("#pokemonDisplay").innerHTML = `
         <div>
     <img src="${data.sprites['front_default']}" alt="${data.name}">
 </div>
@@ -24,34 +25,37 @@ function searchPokemon() {
 }
 document.querySelector("#search").addEventListener("click", searchPokemon);
 
-const pokeGrid = document.querySelector(".pokemonDisplayGrid")
-console.log(pokeGrid)
 
-function getPokeInfo(){
-const promises = [];
 
-for(let i = 1; i <=300; i++){
+const displayGrid = document.querySelector("#pokeGridDisplay")
+function getPokeInfo() {
+    const promises = [];
 
-    const secondURL = `https://pokeapi.co/api/v2/pokemon/${i}`;
-    promises.push(fetch(secondURL).then((res) => res.json()));
 
-}
-Promise.all(promises).then((result) =>{
-    const pokemon = result.map((poke) => ({
-        name: poke.name,
-        id: poke.id,
-        sprites: poke.sprites['front_default']
+    for( let i = 1; i <= 905; i++){
 
-    }))
-    getPokeInfo(pokemon)
-
-})
+const secondUrl = `https://pokeapi.co/api/v2/pokemon/${i}`;
+promises.push(fetch(secondUrl).then( (res) => res.json()));
+    }
+    Promise.all(promises).then( (result) => {
+        const pokemonInfo = result.map((poke) => ({
+            name: poke.name,
+            id: poke.id,
+            sprites: poke.sprites['front_default'],
+        }));
+        pokedexDisplay(pokemonInfo)
+    })
 }
 
 const pokedexDisplay = (pokemon) => {
-    console.log(pokemon);
-    const pokemonList = pokemon.map(pokemon => `
-    `)
-}
+const pokeDeck = pokemon.map(poke => `
+<p id="deckDisplay">
 
+    <img class="image" src="${poke.sprites}"/>
+    <h4>${poke.id}. ${poke.name}</h4>
+</p>
+`)
+.join('');
+pokeGridDisplay.innerHTML = pokeDeck;
+};
 getPokeInfo()

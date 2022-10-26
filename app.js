@@ -20,7 +20,38 @@ function searchPokemon() {
 </div>
         `
     })
-    data.preventDefault();
+    // .preventDefault();
+}
+document.querySelector("#search").addEventListener("click", searchPokemon);
+
+const pokeGrid = document.querySelector(".pokemonDisplayGrid")
+console.log(pokeGrid)
+
+function getPokeInfo(){
+const promises = [];
+
+for(let i = 1; i <=300; i++){
+
+    const secondURL = `https://pokeapi.co/api/v2/pokemon/${i}`;
+    promises.push(fetch(secondURL).then((res) => res.json()));
+
+}
+Promise.all(promises).then((result) =>{
+    const pokemon = result.map((poke) => ({
+        name: poke.name,
+        id: poke.id,
+        sprites: poke.sprites['front_default']
+
+    }))
+    getPokeInfo(pokemon)
+
+})
 }
 
-document.querySelector("#search").addEventListener("click", searchPokemon);
+const pokedexDisplay = (pokemon) => {
+    console.log(pokemon);
+    const pokemonList = pokemon.map(pokemon => `
+    `)
+}
+
+getPokeInfo()

@@ -4,11 +4,12 @@ shows the image, name, and number of pokemons
 
 ### Technologies Used
 
-- HTML       |  FLEXBOX
+- HTML       
 - CSS
 - Javascript
 - AJAX
 - JSON
+- 
 
 ### Wireframes
 
@@ -22,6 +23,8 @@ shows the image, name, and number of pokemons
 |1    | Choose API|
 |2    | Render data to screen |
 |3    | Create form |
+|4    | Debug |
+|5    | Apply CSS|
 
 
 ### Link to Project

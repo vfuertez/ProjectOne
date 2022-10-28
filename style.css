@@ -2,7 +2,7 @@ body {
     height: 100vh;
     width: 100%;
     background: rgb(52,49,107);
-background: linear-gradient(90deg, rgba(52,49,107,1) 0%, rgba(135,135,246,1) 100%, rgba(0,212,255,1) 100%);
+background: linear-gradient(90deg, rgba(87,63,109,1) 0%, rgba(149,133,163,1) 100%, rgba(87,63,109,1) 100%);
     padding-inline-start: 0;
     margin: 0;
 }
@@ -14,7 +14,7 @@ background: linear-gradient(90deg, rgba(52,49,107,1) 0%, rgba(135,135,246,1) 100
 
 }
 
-#pokemonDisplay {
+#searchDisplay {
 
     display:flex;
     flex-direction: row;
@@ -28,7 +28,7 @@ background: linear-gradient(90deg, rgba(52,49,107,1) 0%, rgba(135,135,246,1) 100
 
 
 #deckDisplay {
-    background-color: #c2c2c2;
+    background-color: rgb(194,194,194, 0.6);
     padding:1px;
     color: rgb(8, 11, 10);
     text-align: center;
@@ -37,7 +37,7 @@ background: linear-gradient(90deg, rgba(52,49,107,1) 0%, rgba(135,135,246,1) 100
     text-transform:capitalize;
 }
 
-#pokeGridDisplay {
+#gridDisplay {
     padding-inline-start: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
@@ -56,17 +56,17 @@ background: linear-gradient(90deg, rgba(52,49,107,1) 0%, rgba(135,135,246,1) 100
     width: 100px;
 }
 
-#mainHead {
+#title {
     text-align: center;
 }
 
 .pokemonInfo {
     text-align: center;
     font-size: 15px;
-    background-color: rgb(190, 200, 199);
+    background-color: rgb(190, 200, 199,0.5);
     width: 150px;
     border-radius: 10px;
-    border-image: linear-gradient(120deg, rgb(152, 154, 28), darkorchid) 1;
+    border-image: linear-gradient(120deg, rgb(145, 90, 18), rgb(238, 193, 33)) 1;
     border-width: 6px;
     border-style: solid;
     
@@ -78,4 +78,23 @@ height: 170px;
 
 #pokemonName{
     width: 250px;
+}
+
+@media all and (max-width: 500px) {
+    #deckDisplay {
+        width: 140px;
+    }
+    #gridDisplay{
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); 
+    grid-gap: 15px;
+    }
+    .pokemonInfo{
+        font-size: 10px;
+}
+#searchImage {
+    height: 140px;
+}
+#pokemonName {
+    width: 190px;
+}
 }

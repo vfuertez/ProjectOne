@@ -9,7 +9,7 @@ shows the image, name, and number of pokemons
 - Javascript
 - AJAX
 - JSON
-- 
+- Media Query
 
 ### Wireframes
 
@@ -35,3 +35,6 @@ https://pokeapi.co/api/v2/
 
 ### Endpoint
 https://pokeapi.co/api/v2/pokemon/
+
+### Problem
+- Won't render data from the search bar if letter is capitalize.

@@ -10,7 +10,7 @@ function searchPokemon() {
     $.ajax(url)
     .then((data) => {
         console.log(data)
-        document.querySelector("#pokemonDisplay").innerHTML = `
+        document.querySelector("#searchDisplay").innerHTML = `
         <div>
     <img id="searchImage" src="${data.sprites.front_default}" alt="${data.name}">
 </div>
@@ -30,37 +30,40 @@ document.querySelector("#search").addEventListener("click", searchPokemon);
 
 
 
-const displayGrid = document.querySelector("#pokeGridDisplay")
+const displayGrid = document.querySelector("#gridDisplay")
+
 function getPokeInfo() {
-    const promises = [];
 
+    const pokeArray = [];
 
-    for( let i = 1; i <= 905; i++){
+    for( let number = 1; number <= 905; number++){
 
-const secondUrl = `https://pokeapi.co/api/v2/pokemon/${i}`;
-promises.push(fetch(secondUrl).then( (res) => res.json()));
+const secondUrl = `https://pokeapi.co/api/v2/pokemon/${number}`;
+          pokeArray.push(fetch(secondUrl)
+.then( (res) => res.json()));
     }
-    Promise.all(promises).then( (result) => {
-        const pokemonInfo = result.map((poke) => ({
-            name: poke.name,
-            id: poke.id,
-            sprites: poke.sprites.front_default,
-            type:poke.types.map( type => type.type.name).join(', '),
-        }));
+    Promise.all(pokeArray).then( (res) => {
+        const pokemonInfo = res.map((poke) => {
+        return{
+            pokemonSprites: poke.sprites.front_default,
+            pokemoName: poke.name,
+            pokemonID: poke.id,
+            pokemonType:poke.types.map( type => type.type.name).join(', '),
+        }});
         pokedexDisplay(pokemonInfo)
     })
-}
+};
 
 const pokedexDisplay = (pokemon) => {
 const pokeDeck = pokemon.map(poke => `
 <ol id="deckDisplay">
 
-    <img class="image" src="${poke.sprites}"/>
-    <h4>${poke.id}. ${poke.name}</h4>
-    <p>${poke.type}</p>
+    <img class="image" src="${poke.pokemonSprites}"/>
+    <h4>${poke.pokemonID}. ${poke.pokemoName}</h4>
+    <p>${poke.pokemonType}</p>
 </ol>
 `)
 .join('');
-pokeGridDisplay.innerHTML = pokeDeck;
+gridDisplay.innerHTML = pokeDeck;
 };
 getPokeInfo()

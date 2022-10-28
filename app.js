@@ -12,12 +12,15 @@ function searchPokemon() {
         console.log(data)
         document.querySelector("#pokemonDisplay").innerHTML = `
         <div>
-    <img src="${data.sprites['front_default']}" alt="${data.name}">
+    <img id="searchImage" src="${data.sprites.front_default}" alt="${data.name}">
 </div>
 <div class="pokemonInfo">
 <h1>${data.name}</h1>
 <p>${data.types.map( type => type.type.name).join(', ')}</p>
-<p></p>
+<p>HP: ${data.stats[0].base_stat}  
+<p>Defense: ${data.stats[2].base_stat} </p></p>
+<p>Attack: ${data.stats[1].base_stat}</p>
+<p>Speed: ${data.stats[5].base_stat}</p>
 </div>
         `
     })
@@ -41,7 +44,8 @@ promises.push(fetch(secondUrl).then( (res) => res.json()));
         const pokemonInfo = result.map((poke) => ({
             name: poke.name,
             id: poke.id,
-            sprites: poke.sprites['front_default'],
+            sprites: poke.sprites.front_default,
+            type:poke.types.map( type => type.type.name).join(', '),
         }));
         pokedexDisplay(pokemonInfo)
     })
@@ -49,11 +53,12 @@ promises.push(fetch(secondUrl).then( (res) => res.json()));
 
 const pokedexDisplay = (pokemon) => {
 const pokeDeck = pokemon.map(poke => `
-<p id="deckDisplay">
+<ol id="deckDisplay">
 
     <img class="image" src="${poke.sprites}"/>
     <h4>${poke.id}. ${poke.name}</h4>
-</p>
+    <p>${poke.type}</p>
+</ol>
 `)
 .join('');
 pokeGridDisplay.innerHTML = pokeDeck;

@@ -1,6 +1,14 @@
 # Pokedex
 
-shows the image, name, and number of pokemons
+shows the image, name, stats and id of pokemons
+
+
+### API link
+
+https://pokeapi.co/api/v2/
+### Endpoint
+https://pokeapi.co/api/v2/pokemon/
+
 
 ### Technologies Used
 
@@ -27,14 +35,15 @@ shows the image, name, and number of pokemons
 |5    | Apply CSS|
 
 
-### Link to Project
-[My Project Live Page](https://projectone-kappa.vercel.app/)
-
-### API link
-https://pokeapi.co/api/v2/
-
-### Endpoint
-https://pokeapi.co/api/v2/pokemon/
 
 ### Problem
 - Won't render data from the search bar if letter is capitalize.
+
+
+### Link to Project
+[My Project Live Page](https://projectone-kappa.vercel.app/)
+
+
+
+
+
